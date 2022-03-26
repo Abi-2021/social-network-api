@@ -1,7 +1,7 @@
-const errorHandler = (err, req, req, next) => {
+const errorHandler = (err, res, req, next) => {
     console.log(err.stack);
 
-    res.status(err.statusCode || 500).json({
+    res.status(err.statusCode || 5500).json({
         sucess: false,
         error: err.message || 'Server Error',
     });
