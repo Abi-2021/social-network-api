@@ -1,8 +1,14 @@
-const errorHandler = (err, res, req, next) => {
+const colors = require('colors');
+
+const errorHandler = (err, req, res, next) => {
     console.log(err.stack);
 
-    res.status(err.statusCode || 5500).json({
-        sucess: false,
+    if(err.name === 'CastError') {
+        res.status(404).json({success: false, error: err.message})
+    }
+
+    res.status(err.statusCode || 500).json({
+        success: false,
         error: err.message || 'Server Error',
     });
 };

@@ -1,9 +1,11 @@
 const asyncHandler = require('express-async-handler');
 const User = require('../models/User');
 const ErrorResponse = require('../utils/errorResponse');
+const colors = require('colors');
 
+// /api/v1/users
 exports.getUsers = asyncHandler(async (req, res) => {
-    const users = await User.find();
+    const users = await User.find(); // await Users.find(filter or empty) => array of user
     res.status(200).json({ sucess: true, data: users });
 });
 
@@ -34,11 +36,15 @@ exports.updateUser = asyncHandler(async (req, res) => {
 });
 
 exports.deleteUser = asyncHandler(async (req, res) => {
+    // retrieve path variable which is user id
     const { userId } = req.params;
-    const user = await User.findOneAndDelete(userId);
 
+    // retrieve user from database
+    const user = await User.findByIdAndDelete(userId);
+    // if user is not in the database we need to send error message
     if (!user) throw new ErrorResponse(`No user associated with ${userId}`, 404);
 
+    // if everything is okay, then we send 200 OK status code along with success: true and data: {}
     res.status(200).json({ sucess: true, data: {} });
 });
 
@@ -74,7 +80,7 @@ exports.deleteUserFriend = asyncHandler(async (req, res) => {
     if (!friend)
         throw new ErrorResponse(`No friend associated with ${friendId}`, 404);
 
-    const userWithDeletedFriend = await User.findOneAndDelete(
+    const userWithDeletedFriend = await User.findOneAndUpdate(
         { _id: userId },
         { $pull: { friends: friendId } }
     );
