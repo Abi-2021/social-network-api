@@ -44,7 +44,7 @@ exports.deleteUser = asyncHandler(async (req, res) => {
     // if user is not in the database we need to send error message
     if (!user) throw new ErrorResponse(`No user associated with ${userId}`, 404);
 
-    // if everything is okay, then we send 200 OK status code along with success: true and data: {}
+    // if everything is okay, then we send 200 OK status code along with success: true and _data: {}
     res.status(200).json({ sucess: true, data: {} });
 });
 
