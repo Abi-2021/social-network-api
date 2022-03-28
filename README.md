@@ -27,12 +27,21 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## Screenshots
 
-<img src="">
+<img src="./images/Screenshot1.png"><pre></pre>
+<img src="./images/Screenshot2.png"><pre></pre>
+<img src="./images/Screenshot3.png"><pre></pre>
+<img src="./images/Screenshot4.png"><pre></pre>
+<img src="./images/Screenshot5.png"><pre></pre>
+
 
 
 ## Video Demonstration
 
-[Video Demo](https://drive.google.com/file/d/1fstFBNr4hLtiCgyCU6wo_YhCfBqKEB9W/view?usp=sharing)
+[Video Demo1](https://drive.google.com/file/d/1Cx0Bc5US0kdfw-mE7h6Y10gWacpUNEWN/view?usp=sharing)
+
+[Video Demo2](https://drive.google.com/file/d/1K9JwFDgIAaUtktYPQoADxYZ84_hOZ2Fm/view?usp=sharing)
+
+[Video Demo3](https://drive.google.com/file/d/1dzkDOPXSovKPdkCWfC0pQlE7cH1Jmxur/view?usp=sharing)
 
 
 ## Contact
