@@ -60,7 +60,7 @@ exports.createReactionForAThought = asyncHandler(async (req, res) => {
     const { thoughtId } = req.params;
     const thought = await Thought.findOneAndUpdate(
         { _id: thoughtId },
-        { $push: { reactions: body } },
+        { $push: { reactions: req.body } },
         { new: true, runValidators: true }
     );
 
@@ -71,10 +71,10 @@ exports.createReactionForAThought = asyncHandler(async (req, res) => {
 });
 
 exports.deleteReactionForAThought = asyncHandler(async (req, res) => {
-    const { thoughtId } = req.params;
-    const thought = await Thought.findOneAndDelete(
-        { _id: thoughtId },
-        { $push: { reactions: body } },
+
+    const thought = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $pull: { reactions: {reactionId: req.params.reactionId } } },
         { new: true }
     );
 
